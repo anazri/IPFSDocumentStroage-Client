@@ -1,0 +1,212 @@
+<!--
+<style>
+.card .card-content .card-title {
+    margin-bottom: 12px;
+}
+    .form-control {
+        height: 33px;
+    }
+    
+    .navbar .navbar-nav > li > a.btn.btn-info.btn-fill, .btn-info.btn-fill {
+    color: #50a0f7;
+    background-color: #f3f2ee;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+    .navbar .navbar-nav > li > a.btn.btn-info, .btn-info {
+    border-color: #50a0f7;
+    color: #68B3C8;
+}
+.card .card-title {
+    margin: 0px;
+    color: #f3f9fd;
+    font-weight: 300;
+}
+.table > thead > tr > th {
+    border-bottom-width: 0;
+    font-size: 1.25em;
+    font-weight: 300;
+    color: #fff;
+}
+.navbar .navbar-nav > li > a.btn.btn-warning, .btn-warning {
+    border-color: #F3BB45;
+    color: #337ab7;
+}
+    .tranc{
+            display: inline-block;
+    width: 322PX;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    }
+    
+    .card[data-background-color="blue"] {
+    background: #79b0ec;
+}
+    
+    
+    
+    
+.swal2-icon.swal2-success .placeholder {
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgb(121, 176, 236);
+    border-radius: 50%;
+    box-sizing: content-box;
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    z-index: 2;
+}
+    
+    .swal2-icon.swal2-success .line {
+    height: 5px;
+    background-color: #79b0ec;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 2;
+}
+    
+    .swal2-icon {
+    width: 80px;
+    height: 79px;
+    margin: 10px auto 30px;
+    }
+    .swal2-modal .swal2-title {
+    display: none;
+}
+    .navbar .navbar-nav > li > a.btn.btn-wd, .btn-wd {
+    min-width: 100px;
+}
+    
+    .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-info.btn-fill.dropdown-toggle, .btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {
+    background-color: #337ab7;
+    color: #FFFFFF;
+    border-color: #337ab7;
+}
+    
+    .swal2-modal .swal2-styled {
+    background-color: rgb(121, 176, 236);
+    border-left-color: rgb(48, 133, 214);
+    border-right-color: rgb(48, 133, 214);
+}
+</style>  -->
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" ng-show="showStep1">
+        <div class="" style="background: rgb(121, 176, 236);BORDER-RADIUS: 10PX;">
+            <div class="card-header">
+                <h4 class="card-title text-center">Upload Documents</h4>
+            </div>
+            <div class="card-content">
+
+                <fieldset>
+                    <div class="form-group col-md-8 col-md-offset-2">
+                        <label class="col-sm-4 control-label" style="color: #fff;">File upload : </label>
+                        <div class="col-sm-8">
+
+                            <button class="btn btn-info btn-fill btn-wd" ng-click="doUploadAction()">Upload</button>
+                            <!-- <label class="btn btn-primary" for="my-file-selector">
+                                <input id="my-file-selector" type="file" fileread="uploadme" style="display:none;" onchange="$('#upload-file-info').html($(this).val());"> Choose the file
+                            </label>
+                            <span class="label label-info" id="upload-file-info"></span>-->
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right" ng-class="{'disabled': step1NextDisabled}" ng-click="step1Next()">Next</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--   
+    <div class="col-md-8 col-md-offset-2" ng-show="showStep2">
+       <form name="documentFilterForm1" ng-submit="documentFilterForm1.$valid && step2Next()"  novalidate style="background: rgb(121, 176, 236);BORDER-RADIUS: 10PX;">
+            <div class="">
+                <div class="card-header">
+                    <h4 class="card-title">Select the Range</h4>
+                </div>
+                <div class="card-content">
+                   <div class="row">
+                        <div class="col-md-4">
+                            <h5 class="card-title">From</h5>
+                            <div class="form-group">
+                                <ng-datepicker ng-model="from" name="documentFilterForm1.from" placeholder="from"> </ng-datepicker>
+                                <span ng-bind="from" style="display: none; margin-top: 5px;"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="card-title">To</h5>
+                            <div class="form-group">
+                                <ng-datepicker ng-model="to" name="documentFilterForm1.to" placeholder="to"> </ng-datepicker>
+                                <span ng-bind="to" style="display: none; margin-top: 5px;"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="card-title">Compliance Category</h5>
+                                <div class="form-group">
+                                       <select name="documentFilterForm1.type" ng-model="type" class="form-control valid" aria-required="true" aria-invalid="false" required>
+                                        <option selected="" disabled="">- Category -</option>
+                                        <option value="ms">Brokerage</option>
+                                        <option value="ca">RTQ</option>
+                                        <option value="da">OneIRA</option>
+                                    </select>
+                                </div>
+                        </div>
+                   </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-info btn-fill btn-wd btn-next pull-right" type="submit" 
+                            ng-class="{'disabled': documentFilterForm1.$invalid}"
+                            ng-disabled="documentFilterForm1.$invalid">Submit</button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </form>
+    </div>-->
+
+
+    <div class="col-md-10 col-md-offset-1" ng-show="showStep3">
+        <div class="card">
+            <!--<div class="card-header">
+                <h4 class="card-title">Brokerage Enrollment Details</h4>
+                <p class="category">sub title</p>
+            </div>-->
+            <div class="card-content table-responsive table-full-width" style="padding-top: 0px;margin-top: 25px;">
+                <table class="table">
+                    <thead>
+                        <tr style="background: #79b0ec;">
+                            <th class="text-center" style="border-top-left-radius: 10px;">#</th>
+                            <th>IPFS Hash</th>
+                            <th>FileName</th>
+                            <th>Created On</th>
+                            <th>Content Type</th>
+                            <th style="border-top-right-radius: 10px !important;">Document</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="rec in records">
+                            <td class="text-center">{{$index + 1}}</td>
+                            <td class="tranc">{{rec.hashCode}}</td>
+                            <td class="tranc">{{rec.fileName}}</td>
+                            <td class="tranc">{{rec.contentType}}</td>
+                            <td>{{rec.createdOn | date:'MM/dd/yyyy'}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-simple btn-warning btn-icon edit" ng-click="showDoc(rec.pin, rec.clientName, rec.ipfsHash)"><i class="ti-clipboard"></i></button>
+                            </td>
+                            <!--<td class="text-center"><a class="btn btn-simple btn-warning btn-icon edit" ng-click="showDoc(rec.pin, rec.clientName, rec.ipfsHash)" href="http://10.239.153.121:5001/ipfs/{{rec.ipfsHash}}" target="_blank"><i class="ti-clipboard"></i></a></td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+</div>
